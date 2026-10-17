@@ -16,13 +16,13 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and pode_atirar:
 			pode_atirar = false
-			audio.play() # TODO: colocar o audio no node em si, ta sem som
+			audio.play()
 			animation.play("atirar")
 			
 			testar_e_atirar()
 		
 func testar_e_atirar():
-	var inimigos: Array[Area3D] = hitzone.get_overlapping_areas()
+	var inimigos: Array[Node3D] = hitzone.get_overlapping_bodies()
 	inimigos.sort_custom(func(a, b): return global_position.distance_to(a.global_position) < global_position.distance_to(b.global_position))
 	
 	for inimigo in inimigos:
@@ -30,7 +30,7 @@ func testar_e_atirar():
 		if (result.has("collider")):
 			if (result.collider == inimigo):
 				print("Atirado")
-				# TODO: colocar o inimigo pra tomar dano
+				inimigo.morte()
 				break
 				
 			else: print("nao atirado")

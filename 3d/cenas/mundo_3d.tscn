@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0whca0g7cdas"]
 
 [ext_resource type="PackedScene" uid="uid://cnevqk8i00su2" path="res://3d/cenas/jogador_3d.tscn" id="1_yi4on"]
+[ext_resource type="PackedScene" uid="uid://xw1lxhch7mar" path="res://3d/cenas/inimigo_3d.tscn" id="2_hcoc3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hcoc3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,12 +15,6 @@ background_mode = 2
 sky = SubResource("Sky_rradq")
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ebum8"]
-size = Vector3(5.7973633, 4.161621, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_yi4on"]
-size = Vector3(5.7973633, 4.161621, 1)
-
 [node name="Mundo3D" type="Node3D" unique_id=1086466881]
 
 [node name="Ambiente3D" type="WorldEnvironment" parent="." unique_id=1933157793]
@@ -29,7 +24,7 @@ environment = SubResource("Environment_nm3gn")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Jogador3D" parent="." unique_id=27713454 instance=ExtResource("1_yi4on")]
+[node name="Jogador3D" parent="." unique_id=27713454 groups=["player3d"] instance=ExtResource("1_yi4on")]
 
 [node name="Chaozao" type="CSGBox3D" parent="." unique_id=735362464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.9305964, 0)
@@ -37,20 +32,14 @@ use_collision = true
 collision_layer = 2
 size = Vector3(40, 1, 40)
 
-[node name="Area3D2" type="Area3D" parent="." unique_id=978946341]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.890211)
-collision_layer = 4
-collision_mask = 0
+[node name="Inimigo" parent="." unique_id=1947469917 instance=ExtResource("2_hcoc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.4455)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=1248373374]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3986816, 0.8663819, -6.026065)
-shape = SubResource("BoxShape3D_ebum8")
+[node name="Inimigo2" parent="." unique_id=2052768830 instance=ExtResource("2_hcoc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.702387, 0, 9.4455)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1445219386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.574347)
-collision_layer = 4
-collision_mask = 0
+[node name="Inimigo3" parent="." unique_id=458810800 instance=ExtResource("2_hcoc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.686597, 0, 9.4455)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2108739219]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3986816, 0.8663819, 0)
-shape = SubResource("BoxShape3D_yi4on")
+[node name="Inimigo4" parent="." unique_id=706991924 instance=ExtResource("2_hcoc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2507124, 0, 9.4455)

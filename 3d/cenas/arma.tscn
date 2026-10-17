@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ct42bv0x1qucb" path="res://3d/assets/Shoot2.png" id="3_w8yq6"]
 [ext_resource type="Texture2D" uid="uid://kfq056hjpjcv" path="res://3d/assets/Shoot3.png" id="4_ihi3k"]
 [ext_resource type="Texture2D" uid="uid://c43hhanlddbd3" path="res://3d/assets/Shoot4.png" id="5_qyni3"]
+[ext_resource type="AudioStream" uid="uid://3v13awl1qyq4" path="res://3d/assets/player/laser_sound.mp3" id="7_w8yq6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
 animations = [{
@@ -140,6 +141,11 @@ _data = {
 &"idle": SubResource("Animation_w8yq6")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ebum8"]
+random_pitch = 1.1066252
+streams_count = 1
+stream_0/stream = ExtResource("7_w8yq6")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_ebum8"]
 size = Vector3(1, 4.3302, 12.30127)
 
@@ -172,6 +178,8 @@ animation = &"idle"
 libraries/ = SubResource("AnimationLibrary_ihi3k")
 
 [node name="Audio" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=1226053006]
+stream = SubResource("AudioStreamRandomizer_ebum8")
+volume_db = -20.0
 
 [node name="HitZone" type="Area3D" parent="." unique_id=1366897217]
 collision_layer = 0
