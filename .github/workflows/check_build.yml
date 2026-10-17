@@ -31,6 +31,7 @@ jobs:
       - name: Godot Export (Validation)
         uses: firebelley/godot-export@v6.0.0
         with:
+          godot_version: "4.7.2"
           godot_executable_file_path: "godot-headless"
           godot_export_target: "Windows Desktop" # Nome da predefinição criada em Export -> Presets no Godot
           project_directory: "."
