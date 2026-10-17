@@ -1,0 +1,39 @@
+# Fontes:
+# https://github.com/marketplace/actions/build-godot
+# https://github.com/FATESG-GJKLS/Emergencia-Vital/blob/main/.github/workflows/ci.yml
+name: Build Godot Project
+
+on:
+  push:
+    branches:
+      - develop
+      - "feature/**"
+      - "feat/**"
+    
+  pull_request:
+    branches:
+      - main # quando um PR tenta entrar no main
+      - develop # quando um PR tenta entrar no develop
+
+jobs:
+  Godot:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [win32, win64]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Build
+        id: build
+        uses: manleydev/build-godot-action@v1.4.1
+        with:
+          name: example
+          preset: ${{ matrix.platform }}
+          debugMode: "true"
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Client - ${{ matrix.platform }}
+          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
