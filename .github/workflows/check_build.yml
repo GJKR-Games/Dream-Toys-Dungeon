@@ -1,9 +1,11 @@
 # Fontes:
 # https://github.com/marketplace/actions/build-godot
 # https://github.com/FATESG-GJKLS/Emergencia-Vital/blob/main/.github/workflows/ci.yml
+# Gemini (AI)
 name: Build Godot Project
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - develop
@@ -16,24 +18,19 @@ on:
       - develop # quando um PR tenta entrar no develop
 
 jobs:
-  Godot:
+  build_check:
+    name: "Validate Godot Build"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [win32, win64]
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Build
-        id: build
-        uses: manleydev/build-godot-action@v1.4.1
+
+      - name: Godot Export (Validation)
+        uses: firebelley/godot-export@v6.0.0
         with:
-          name: example
-          preset: ${{ matrix.platform }}
-          debugMode: "true"
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Client - ${{ matrix.platform }}
-          path: ${{ github.workspace }}/${{ steps.build.outputs.build }}
+          godot_executable_file_path: "godot-headless"
+          godot_export_target: "Windows Desktop" # Nome da predefinição criada em Export -> Presets no Godot
+          project_directory: ".
