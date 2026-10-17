@@ -123,6 +123,9 @@ _data = {
 &"idle_2": SubResource("Animation_ktxcj")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xvf33"]
+size = Vector3(4, 1, 4)
+
 [node name="Inimigo" type="CharacterBody3D" unique_id=1947469917]
 collision_layer = 4
 collision_mask = 3
@@ -142,3 +145,11 @@ volume_db = -20.0
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1137628666]
 libraries/ = SubResource("AnimationLibrary_ktxcj")
+
+[node name="AttackRange" type="Area3D" parent="." unique_id=721360567]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" unique_id=108900378]
+shape = SubResource("BoxShape3D_xvf33")
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]

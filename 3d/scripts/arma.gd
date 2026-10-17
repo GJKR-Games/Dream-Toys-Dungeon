@@ -41,6 +41,7 @@ func testar_ray_cast(pos: Vector3) -> Dictionary:
 	var fim = pos
 	var query = PhysicsRayQueryParameters3D.create(origem, fim)
 	query.collide_with_areas = true
+	
 	return space_state.intersect_ray(query)
 	
 	

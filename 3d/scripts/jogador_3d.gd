@@ -3,6 +3,9 @@ extends CharacterBody3D
 
 const VELOCIDADE = 5.0
 const MOUSE_SENSIBILIDADE = 0.45
+var posso_tomar_hit = true
+
+@export var world: WorldEnvironment
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -28,3 +31,15 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, VELOCIDADE)
 
 	move_and_slide()
+
+func tomar_hit():
+	if posso_tomar_hit:
+		var tween = create_tween()
+		
+		posso_tomar_hit = false
+		get_tree().create_timer(1.2).timeout.connect(func(): posso_tomar_hit = true)
+		world.environment.adjustment_saturation = 0
+		world.environment.adjustment_brightness = 0.4
+		
+		tween.tween_property(world, "environment:adjustment_saturation", 1, 1)
+		tween.tween_property(world, "environment:adjustment_brightness", 1, 2)

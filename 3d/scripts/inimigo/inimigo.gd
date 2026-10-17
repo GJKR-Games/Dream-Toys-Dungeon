@@ -50,3 +50,9 @@ func morte():
 	$AudioMorte.play()
 	animated_sprite.play("morto")
 	$CollisionShape3D.disabled = true
+	$AttackRange/CollisionShape3D.disabled = true
+
+
+func _on_attack_range_body_entered(body: Node3D) -> void:
+	if not to_morto:
+		player.tomar_hit()
