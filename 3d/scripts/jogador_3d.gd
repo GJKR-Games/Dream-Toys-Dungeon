@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const VELOCIDADE = 5.0
-const MOUSE_SENSIBILIDADE = 1.0
+const MOUSE_SENSIBILIDADE = 0.45
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
