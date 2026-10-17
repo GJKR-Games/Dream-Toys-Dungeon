@@ -14,6 +14,9 @@ var to_morto = false
 var lado_incial = false
 func _ready() -> void:
 	lado_incial = randi() % 2
+	get_tree().create_timer(2 * randf()).timeout.connect(func(): iniciar_animacoes())
+
+func iniciar_animacoes():
 	animation.connect("animation_finished", resetar_animacao)
 	if lado_incial:
 		animation.play("idle")
@@ -21,10 +24,12 @@ func _ready() -> void:
 		animation.play("idle_2")
 
 func resetar_animacao(animacao):
-	if animacao == "idle":
-		animation.play("idle_2")
-	else:
-		animation.play("idle")
+	if not to_morto:
+		if animacao == "idle":
+			animation.play("idle_2")
+		if animacao == "idle_2":
+			animation.play("idle")
+
 
 func _physics_process(_delta: float) -> void:
 	if to_morto: return
