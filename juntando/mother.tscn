@@ -54,6 +54,7 @@ stream = SubResource("AudioStreamMP3_nfwoy")
 volume_db = -20.0
 
 [node name="VenceuLabel" type="Label" parent="." unique_id=1079036140 groups=["VenceuLabel"]]
+visible = false
 offset_left = 89.0
 offset_top = -113.0
 offset_right = 333.0
