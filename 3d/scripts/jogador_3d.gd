@@ -9,6 +9,7 @@ var posso_tomar_hit = true
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

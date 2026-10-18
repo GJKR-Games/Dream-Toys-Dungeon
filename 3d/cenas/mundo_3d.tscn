@@ -1,8 +1,32 @@
 [gd_scene format=3 uid="uid://0whca0g7cdas"]
 
+[ext_resource type="Script" uid="uid://dsxa068f08pii" path="res://3d/scripts/mundo_3d.gd" id="1_8klh8"]
 [ext_resource type="PackedScene" uid="uid://cnevqk8i00su2" path="res://3d/cenas/jogador_3d.tscn" id="1_yi4on"]
 [ext_resource type="PackedScene" uid="uid://xw1lxhch7mar" path="res://3d/cenas/inimigo_3d.tscn" id="2_hcoc3"]
 [ext_resource type="Texture2D" uid="uid://dwkv50oatfs7l" path="res://3d/assets/cubin.png" id="3_rradq"]
+[ext_resource type="Texture2D" uid="uid://c2dm8mr7ricsp" path="res://3d/assets/tutorial/MouseSpriteSheet.png" id="5_8klh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0ywq"]
+atlas = ExtResource("5_8klh8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dd0h"]
+atlas = ExtResource("5_8klh8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0ywq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dd0h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rradq"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -24,6 +48,32 @@ adjustment_enabled = true
 size = Vector3(41, 2, 1)
 
 [node name="Mundo3D" type="Node3D" unique_id=1086466881]
+visible = false
+script = ExtResource("1_8klh8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341903032]
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1376912708]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control" unique_id=1076620358]
+texture_filter = 1
+position = Vector2(-168, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ebum8")
+frame_progress = 0.7830436
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=748298623]
 environment = SubResource("Environment_nm3gn")
