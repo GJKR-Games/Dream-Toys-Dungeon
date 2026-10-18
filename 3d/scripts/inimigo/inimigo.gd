@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 @onready var animated_sprite = $AnimatedSprite3D
 
-var move_speed = 1.67
+var move_speed = 2.5
 var attack_range = 2.0
 
 var to_morto = false
@@ -54,9 +54,9 @@ func morte():
 	$CollisionShape3D.disabled = true
 	$AttackRange/CollisionShape3D.disabled = true
 
-
+	
 func _on_attack_range_body_entered(body: Node3D) -> void:
-	if not to_morto:
+	if not to_morto and body.name == "Jogador3D":
 		player.tomar_hit()
 
 

@@ -24,6 +24,7 @@ func trocar_pro_3d():
 	
 	mundo_3d.process_mode = Node.PROCESS_MODE_INHERIT
 	mundo_3d.visible = true
+	mundo_3d.entrar()
 	var nodes = get_all_children(mundo_3d)
 	for node in nodes:
 		if node.name == "CanvasLayer":
