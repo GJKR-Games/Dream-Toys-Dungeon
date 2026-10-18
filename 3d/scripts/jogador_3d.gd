@@ -4,7 +4,7 @@ extends CharacterBody3D
 const VELOCIDADE = 5.0
 const MOUSE_SENSIBILIDADE = 0.45
 var posso_tomar_hit = true
-var coletados: int = 0
+var coletados: int = 3
 @export var world: WorldEnvironment
 
 
@@ -14,7 +14,9 @@ func add_coletado():
 	if coleta_label != null:
 		coleta_label.text = "Coletados: %s/4" % coletados
 
-
+	if coletados == 4:
+		var mother: Node = get_tree().get_first_node_in_group("mother")
+		mother.fim()
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

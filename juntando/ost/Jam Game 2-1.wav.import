@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dusxgcmypjjbg"
+path="res://.godot/imported/Jam Game 2-1.wav-d172ac53f63a0a1e77b2e4b5b4242dc6.sample"
+
+[deps]
+
+source_file="res://juntando/ost/Jam Game 2-1.wav"
+dest_files=["res://.godot/imported/Jam Game 2-1.wav-d172ac53f63a0a1e77b2e4b5b4242dc6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
