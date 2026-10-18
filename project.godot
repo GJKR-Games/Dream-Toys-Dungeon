@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GJKR-Jogo"
+config/name="Dream Toys Dungeon"
 run/main_scene="uid://ctwu0oe5lt3gj"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -21,6 +21,7 @@ GerenciadorDialogo="*uid://hlvn4etbpgrv"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
