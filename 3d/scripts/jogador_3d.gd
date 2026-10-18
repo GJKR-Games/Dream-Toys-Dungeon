@@ -13,7 +13,8 @@ func add_coletado():
 	var coleta_label: Label = get_tree().get_first_node_in_group("ColetaLabel")
 	if coleta_label != null:
 		coleta_label.text = "Coletados: %s/4" % coletados
-
+	$CoinPickup.play()
+	
 	if coletados == 4:
 		var mother: Node = get_tree().get_first_node_in_group("mother")
 		mother.fim()
