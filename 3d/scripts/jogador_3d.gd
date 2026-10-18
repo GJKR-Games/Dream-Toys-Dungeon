@@ -13,8 +13,7 @@ func add_coletado():
 	var coleta_label: Label = get_tree().get_first_node_in_group("ColetaLabel")
 	if coleta_label != null:
 		coleta_label.text = "Coletados: %s/4" % coletados
-		
-	print(coleta_label)
+
 
 
 func _ready():
@@ -24,9 +23,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * MOUSE_SENSIBILIDADE
-	else:
-		if Input.is_key_pressed(KEY_ESCAPE):
-			get_tree().quit()
+	
 
 
 func _physics_process(delta: float) -> void:

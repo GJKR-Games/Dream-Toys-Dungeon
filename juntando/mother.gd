@@ -25,8 +25,26 @@ func _input(event: InputEvent) -> void:
 				create_tween().tween_property($Censura2D, "modulate:a", 0.67, 0.5)
 				mundo_2d.process_mode = Node.PROCESS_MODE_DISABLED
 		else:
-			
-			pass
+			if mundo_3d.process_mode == Node.PROCESS_MODE_DISABLED:
+				create_tween().tween_property($Censura2D, "modulate:a", 0, 0.5)
+				mundo_3d.process_mode = Node.PROCESS_MODE_INHERIT
+				$PauseLabel.visible = false
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				var nodes_3d = get_all_children(mundo_3d)
+				for node in nodes_3d:
+					if node.name == "PauseLabel3D":
+						node.visible = false
+			elif mundo_3d.process_mode == Node.PROCESS_MODE_INHERIT:
+				var nodes_3d = get_all_children(mundo_3d)
+				for node in nodes_3d:
+					if node.name == "Jogador3D":
+						$Censura2D.global_position = Vector2(int(node.global_position.x - 412.0/2), int(node.global_position.y - 281.0/2))
+					if node.name == "PauseLabel3D":
+						node.visible = true
+					
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				create_tween().tween_property($Censura2D, "modulate:a", 0.67, 0.5)
+				mundo_3d.process_mode = Node.PROCESS_MODE_DISABLED
 	
 func get_all_children(in_node,arr:=[]):
 	arr.push_back(in_node)
@@ -47,13 +65,13 @@ func _ready() -> void:
 	create_tween().tween_property($Censura2D, "modulate:a", 0, 1)
 
 func trocar_pro_3d():
+	to_no_3d = true
 	mundo_2d.visible = false
 	mundo_2d.process_mode = Node.PROCESS_MODE_DISABLED
 	var nodes_2d = get_all_children(mundo_2d)
 	for node in nodes_2d:
 		if node.name == "Camera2D":
 			node.enabled = false
-	
 	
 	mundo_3d.process_mode = Node.PROCESS_MODE_INHERIT
 	mundo_3d.visible = true
@@ -63,6 +81,5 @@ func trocar_pro_3d():
 		if node.name == "CanvasLayer":
 			node.visible = true
 		elif node.name == "SubViewportContainer":
-			#node.visible = true
 			node.set_deferred("visible", true)
 	
