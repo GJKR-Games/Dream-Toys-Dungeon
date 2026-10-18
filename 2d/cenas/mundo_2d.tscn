@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b3l0k84jfdrl5" path="res://2d/assets/spritesPlaceHold/tilesets/grass.png" id="2_ftevt"]
 [ext_resource type="Texture2D" uid="uid://c17y8bisfghaq" path="res://2d/assets/spritesPlaceHold/tilesets/plains.png" id="3_yfehb"]
 [ext_resource type="PackedScene" uid="uid://c7dtswgy583ma" path="res://2d/cenas/jogador_2d.tscn" id="4_ftevt"]
+[ext_resource type="PackedScene" uid="uid://2gpg7jwf78ls" path="res://2d/cenas/porta.tscn" id="5_yfehb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_loj5u"]
 texture = ExtResource("1_1ylll")
@@ -177,7 +178,7 @@ texture = ExtResource("3_yfehb")
 1:2/0 = 0
 1:2/0/terrain_set = 0
 1:2/0/terrain = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -3.507246, -8, -3.3273869, 4.6763268, 8, 4.3166103, 8, 8, -8, 8)
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -4.0102596, -8, -4.2133102, 3.5533934, 8, 3.5533943, 8, 8, -8, 8)
 1:2/0/terrains_peering_bit/right_side = 0
 1:2/0/terrains_peering_bit/top_side = 0
 1:2/0/terrains_peering_bit/top_right_corner = 0
@@ -299,3 +300,6 @@ tile_map_data = PackedByteArray("AAABAAEAAQADAAIAAAABAAAAAQADAAEAAAABAP//AQADAAE
 tile_set = SubResource("TileSet_xvf33")
 
 [node name="Jogador2D" parent="." unique_id=429544570 instance=ExtResource("4_ftevt")]
+
+[node name="Porta" parent="." unique_id=1543261472 instance=ExtResource("5_yfehb")]
+position = Vector2(141, 66)
