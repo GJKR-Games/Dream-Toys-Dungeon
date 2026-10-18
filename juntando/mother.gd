@@ -57,6 +57,7 @@ func get_all_children(in_node,arr:=[]):
 	return arr
 
 func _ready() -> void:
+	get_window().unresizable = true
 	musica_2d.play()
 	mundo_3d.visible = false
 	var nodes = get_all_children(mundo_3d)
