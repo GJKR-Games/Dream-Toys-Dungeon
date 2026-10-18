@@ -13,9 +13,6 @@ var state = AnimState.IDLE_D
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().quit()
-	
 	if Input.is_action_just_pressed("ui_interact") and to_na_area:
 		var mother = get_tree().get_first_node_in_group("mother")
 		if mother == null:

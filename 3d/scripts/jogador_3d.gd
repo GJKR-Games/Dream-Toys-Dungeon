@@ -4,7 +4,7 @@ extends CharacterBody3D
 const VELOCIDADE = 5.0
 const MOUSE_SENSIBILIDADE = 0.45
 var posso_tomar_hit = true
-var coletados: int = 3
+var coletados: int = 0
 @export var world: WorldEnvironment
 
 
