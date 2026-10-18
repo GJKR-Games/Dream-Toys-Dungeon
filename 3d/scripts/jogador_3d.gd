@@ -4,18 +4,27 @@ extends CharacterBody3D
 const VELOCIDADE = 5.0
 const MOUSE_SENSIBILIDADE = 0.45
 var posso_tomar_hit = true
-
+var coletados: int = 0
 @export var world: WorldEnvironment
+
+
+func add_coletado():
+	coletados += 1
+	var coleta_label: Label = get_tree().get_first_node_in_group("ColetaLabel")
+	if coleta_label != null:
+		coleta_label.text = "Coletados: %s/4" % coletados
+
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotation_degrees.y -= event.relative.x * MOUSE_SENSIBILIDADE
-	else:
-		if Input.is_key_pressed(KEY_ESCAPE):
-			get_tree().quit()
+	
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

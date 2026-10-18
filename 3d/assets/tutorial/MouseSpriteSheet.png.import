@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdw7vhpiyfod4"
-path="res://.godot/imported/Idle.png-5ff60625600bd153d3382b4979453554.ctex"
+uid="uid://c2dm8mr7ricsp"
+path="res://.godot/imported/MouseSpriteSheet.png-dfbe870c80fcd40276543be23d740b5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://3d/assets/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-5ff60625600bd153d3382b4979453554.ctex"]
+source_file="res://3d/assets/tutorial/MouseSpriteSheet.png"
+dest_files=["res://.godot/imported/MouseSpriteSheet.png-dfbe870c80fcd40276543be23d740b5d.ctex"]
 
 [params]
 
