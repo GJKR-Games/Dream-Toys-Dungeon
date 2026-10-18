@@ -1,10 +1,13 @@
 [gd_scene format=3 uid="uid://xw1lxhch7mar"]
 
 [ext_resource type="Script" uid="uid://cvviyby31ytid" path="res://3d/scripts/inimigo/inimigo.gd" id="1_eoudf"]
-[ext_resource type="Texture2D" uid="uid://cxuug7w8kmwub" path="res://3d/assets/inimigo/placeholder_1.png" id="2_sk1ui"]
-[ext_resource type="Texture2D" uid="uid://ds4xl4d4l2awo" path="res://3d/assets/inimigo/placeholder_3.jpg" id="4_ijtyy"]
+[ext_resource type="Texture2D" uid="uid://jqrd7sxbuwln" path="res://3d/assets/inimigo/soldado.png" id="2_80oct"]
+[ext_resource type="Texture2D" uid="uid://c6vk3idqccko" path="res://3d/assets/inimigo/soldado_flip.png" id="3_ktxcj"]
+[ext_resource type="Texture2D" uid="uid://kcb1bx8lum64" path="res://3d/assets/inimigo/soldado_1.png" id="4_hrjhs"]
+[ext_resource type="Texture2D" uid="uid://dvgoi0qlvtdsb" path="res://3d/assets/inimigo/soldado_2.png" id="5_shsj5"]
 [ext_resource type="AudioStream" uid="uid://qdxe5u8n5ac6" path="res://3d/assets/inimigo/Tom Screaming - Sound Effect (HD).mp3" id="5_uisfs"]
 [ext_resource type="AudioStream" uid="uid://xfkvrnexb0nx" path="res://3d/assets/inimigo/Wilhelm Scream - Sound Effect (HD).mp3" id="6_4eekr"]
+[ext_resource type="Texture2D" uid="uid://cvkbiegaqejp6" path="res://3d/assets/inimigo/soldado_3.png" id="6_l5ojo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ebum8"]
 
@@ -12,17 +15,29 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sk1ui")
+"texture": ExtResource("2_80oct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ktxcj")
 }],
 "loop": 1,
 "name": &"andar",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_ijtyy")
+"texture": ExtResource("2_80oct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hrjhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_shsj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l5ojo")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"morto",
 "speed": 5.0
 }]
@@ -59,6 +74,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_4eekr"]
 resource_name = "idle"
@@ -86,6 +113,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.1, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_ktxcj"]
@@ -115,6 +154,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [Vector3(0, 0, 0), Vector3(0, -0.1, 0), Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite3D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.46666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ktxcj"]
 _data = {
@@ -124,7 +175,10 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvf33"]
-size = Vector3(4, 1, 4)
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ebum8"]
+size = Vector3(20, 1, 20)
 
 [node name="Inimigo" type="CharacterBody3D" unique_id=1947469917]
 collision_layer = 4
@@ -135,9 +189,10 @@ script = ExtResource("1_eoudf")
 shape = SubResource("CapsuleShape3D_ebum8")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2024063863]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_ebum8")
-animation = &"andar"
+animation = &"morto"
 
 [node name="AudioMorte" type="AudioStreamPlayer" parent="." unique_id=222425393]
 stream = SubResource("AudioStreamRandomizer_w8yq6")
@@ -152,4 +207,12 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AttackRange" unique_id=108900378]
 shape = SubResource("BoxShape3D_xvf33")
 
+[node name="AreaDeteccao" type="Area3D" parent="." unique_id=694376036]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDeteccao" unique_id=1867740515]
+shape = SubResource("BoxShape3D_ebum8")
+debug_color = Color(0.27130985, 0.6329254, 5.7756904e-07, 0.41960785)
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_entered" from="AreaDeteccao" to="." method="_on_area_deteccao_body_entered"]
