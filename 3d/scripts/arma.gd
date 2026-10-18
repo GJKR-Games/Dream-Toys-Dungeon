@@ -28,11 +28,9 @@ func testar_e_atirar():
 		var result = testar_ray_cast(inimigo.global_position)
 		if (result.has("collider")):
 			if (result.collider == inimigo):
-				print("Atirado")
 				inimigo.morte()
 				break
 				
-			else: print("nao atirado")
 
 func testar_ray_cast(pos: Vector3) -> Dictionary:
 	var space_state = get_world_3d().direct_space_state

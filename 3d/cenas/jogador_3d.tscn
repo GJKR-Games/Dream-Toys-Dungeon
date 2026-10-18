@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://oiv65kqd48xy" path="res://3d/scripts/jogador_3d.gd" id="1_18p6e"]
 [ext_resource type="PackedScene" uid="uid://oidqybakjwr5" path="res://3d/cenas/arma.tscn" id="1_rrtwt"]
+[ext_resource type="AudioStream" uid="uid://d1bnm3xouo2np" path="res://3d/assets/coletavel/subway-surfers-coin-collect.mp3" id="3_jf605"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cdxx"]
 
@@ -13,3 +14,7 @@ script = ExtResource("1_18p6e")
 shape = SubResource("CapsuleShape3D_1cdxx")
 
 [node name="ArmaRoot" parent="." unique_id=1513485598 instance=ExtResource("1_rrtwt")]
+
+[node name="CoinPickup" type="AudioStreamPlayer" parent="." unique_id=1350719706]
+stream = ExtResource("3_jf605")
+volume_db = -20.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rf3xxm5x4kyi"
+path="res://.godot/imported/Jam Game 2-2 - LOOP.mp3-b9f68642b141d9b0a55cb0a5472cb6ca.mp3str"
+
+[deps]
+
+source_file="res://juntando/ost/Jam Game 2-2 - LOOP.mp3"
+dest_files=["res://.godot/imported/Jam Game 2-2 - LOOP.mp3-b9f68642b141d9b0a55cb0a5472cb6ca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
