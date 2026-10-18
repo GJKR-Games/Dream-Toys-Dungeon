@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://2gpg7jwf78ls"]
 
 [ext_resource type="Texture2D" uid="uid://c5ye34kpcv4xa" path="res://2d/assets/sprites/objects/house1RL.png" id="1_0fg3y"]
+[ext_resource type="Script" uid="uid://c73l3tfbm1822" path="res://2d/scripts/porta.gd" id="1_1i1qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
 size = Vector2(42.5, 56.5)
 
 [node name="Porta" type="Node2D" unique_id=1543261472]
+script = ExtResource("1_1i1qo")
 
 [node name="PortaArea" type="Area2D" parent="." unique_id=1914911097]
 
@@ -19,3 +21,6 @@ texture_filter = 1
 position = Vector2(0, -14)
 scale = Vector2(0.31640625, 0.2921875)
 texture = ExtResource("1_0fg3y")
+
+[connection signal="body_entered" from="PortaArea" to="." method="_on_porta_area_body_entered"]
+[connection signal="body_exited" from="PortaArea" to="." method="_on_porta_area_body_exited"]

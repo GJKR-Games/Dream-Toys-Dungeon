@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://hlvn4etbpgrv" path="res://2d/cenas/GerenciadorDialogo.tscn" id="6_wgb5s"]
 [ext_resource type="Texture2D" uid="uid://ecmv2e7oo4ew" path="res://2d/assets/sprites/objects/cajularanjaRL.png" id="7_xkvkm"]
 [ext_resource type="Texture2D" uid="uid://wjblfdjpno6f" path="res://2d/assets/sprites/objects/cajuamareloRL.png" id="8_xunua"]
+[ext_resource type="Texture2D" uid="uid://dy4lx6hgu360y" path="res://3d/assets/tutorial/f.png" id="9_xunua"]
+[ext_resource type="Texture2D" uid="uid://cigmq1bi6x1jp" path="res://3d/assets/tutorial/f_press.png" id="10_1jvvo"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_8ya8k"]
 tile_data = PackedInt32Array(0, 65537, 0, 65536, 65537, 1, 131072, 65537, 1, 196608, 65537, 2, 1, 131073, 0, 65537, 131073, 1, 131073, 131073, 1, 196609, 131073, 2, 2, 131073, 0, 65538, 262145, 0, 131074, 262145, 1, 196610, 131073, 2, 3, 131073, 0, 65539, 327681, 0, 131075, 327681, 1, 196611, 131073, 2, 4, 196609, 0, 65540, 196609, 1, 131076, 196609, 1, 196612, 196609, 2)
@@ -402,6 +404,23 @@ terrain_set_0/terrain_0/color = Color(0.3647059, 1, 0.25882354, 1)
 sources/0 = SubResource("TileSetAtlasSource_8ya8k")
 pattern_0 = SubResource("TileMapPattern_8ya8k")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xunua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1jvvo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ebum8"]
+b = Vector2(0, 25)
+
 [node name="Mundo2d" type="Node2D" unique_id=1743210799]
 
 [node name="Paths" type="TileMapLayer" parent="." unique_id=1787018904]
@@ -437,3 +456,21 @@ texture = ExtResource("7_xkvkm")
 position = Vector2(155, 5)
 scale = Vector2(0.23274739, 0.27050787)
 texture = ExtResource("8_xunua")
+
+[node name="FTutorial" type="AnimatedSprite2D" parent="." unique_id=1262652494 groups=["FTutorial"]]
+visible = false
+texture_filter = 1
+position = Vector2(-35, -100)
+sprite_frames = SubResource("SpriteFrames_ebum8")
+
+[node name="FTutorial2" type="AnimatedSprite2D" parent="." unique_id=1963226677 groups=["FTutorial"]]
+visible = false
+texture_filter = 1
+position = Vector2(250, -134)
+sprite_frames = SubResource("SpriteFrames_ebum8")
+
+[node name="BlockProgredir" type="RigidBody2D" parent="." unique_id=1644292037 groups=["BlockProgredir"]]
+position = Vector2(18, -109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlockProgredir" unique_id=1949237652]
+shape = SubResource("SegmentShape2D_ebum8")

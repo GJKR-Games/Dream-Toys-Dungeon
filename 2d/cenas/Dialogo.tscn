@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dpi1kcq02ynwo" path="res://2d/assets/sprites/characters/Selection.png" id="2_qskn6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
-size = Vector2(22, 28.5)
+size = Vector2(29, 34.5)
 
 [node name="DialogoArea" type="Node2D" unique_id=1346155761]
 script = ExtResource("1_qskn6")
@@ -12,7 +12,7 @@ script = ExtResource("1_qskn6")
 [node name="DialogoArea" type="Area2D" parent="." unique_id=653004520]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialogoArea" unique_id=617960116]
-position = Vector2(0, -12.25)
+position = Vector2(0.5, -9.25)
 shape = SubResource("RectangleShape2D_ebum8")
 
 [node name="Selection" type="Sprite2D" parent="." unique_id=1804024083]
