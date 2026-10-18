@@ -3,7 +3,6 @@ extends Node3D
 @onready var animation: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var audio := $CanvasLayer/Audio
 @onready var hitzone := $HitZone
-@export var main_camera: Camera3D
 
 var pode_atirar = true
 

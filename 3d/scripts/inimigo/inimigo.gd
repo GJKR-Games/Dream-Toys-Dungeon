@@ -29,11 +29,10 @@ func resetar_animacao(animacao):
 		if animacao == "idle_2":
 			animation.play("idle")
 
-var detectei = false
 
 func _physics_process(_delta: float) -> void:
 	if to_morto: return
-	if not detectei: return
+	if not iniciei_andamento: return
 	if player == null:
 		print("PLAYER NULO???")
 		player = get_tree().get_first_node_in_group("player3d")
@@ -66,4 +65,3 @@ func _on_area_deteccao_body_entered(body: Node3D) -> void:
 		iniciar_animacoes()
 		iniciei_andamento = true
 		$AnimatedSprite3D.play("andar")
-		detectei = true

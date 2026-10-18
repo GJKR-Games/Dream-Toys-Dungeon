@@ -12,9 +12,4 @@ script = ExtResource("1_18p6e")
 [node name="Colisao" type="CollisionShape3D" parent="." unique_id=930107662]
 shape = SubResource("CapsuleShape3D_1cdxx")
 
-[node name="Camera" type="Node3D" parent="." unique_id=813543993]
-
-[node name="Camera3D" type="Camera3D" parent="Camera" unique_id=1181179072]
-
-[node name="ArmaRoot" parent="." unique_id=1513485598 node_paths=PackedStringArray("main_camera") instance=ExtResource("1_rrtwt")]
-main_camera = NodePath("../Camera/Camera3D")
+[node name="ArmaRoot" parent="." unique_id=1513485598 instance=ExtResource("1_rrtwt")]
