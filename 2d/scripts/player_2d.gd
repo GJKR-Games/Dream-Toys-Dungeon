@@ -5,6 +5,8 @@ const SPEED = 100.0
 
 # Controles de Animação
 @onready var animated_sprite_2d: AnimatedSprite2D = $SpritePlayer
+@onready var gerenciador_dialogo: Node2D = $"../GerenciadorDialogo"
+
 enum AnimState {IDLE_D, IDLE_U, IDLE_S, WALKING_D, WALKING_U, WALKING_S}
 
 var state = AnimState.IDLE_D
@@ -20,6 +22,8 @@ func _input(event: InputEvent) -> void:
 			print('err')
 		else:
 			mother.trocar_pro_3d()
+#	if Input.is_action_just_pressed("ui_interact") and dialogo_on:
+		
 
 func _physics_process(_delta: float) -> void:
 
@@ -68,8 +72,15 @@ func change_state(new_state):
 
 
 var to_na_area = false
+var dialogo_on = false
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	to_na_area = true
+	if area.name == "PortaArea":
+		to_na_area = true
+	if area.name == "DialogoArea":
+		dialogo_on = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	to_na_area = false
+	if area.name == "PortaArea":
+		to_na_area = false
+	if area.name == "DialogoArea":
+		dialogo_on = false

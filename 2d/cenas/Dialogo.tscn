@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dgpotxb2qexx3"]
+
+[ext_resource type="Script" uid="uid://dofnch8ywyg2w" path="res://2d/scripts/dialogo1.gd" id="1_qskn6"]
+[ext_resource type="Texture2D" uid="uid://dpi1kcq02ynwo" path="res://2d/assets/sprites/characters/Selection.png" id="2_qskn6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
+size = Vector2(22, 28.5)
+
+[node name="DialogoArea" type="Node2D" unique_id=1346155761]
+script = ExtResource("1_qskn6")
+
+[node name="DialogoArea" type="Area2D" parent="." unique_id=653004520]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogoArea" unique_id=617960116]
+position = Vector2(0, -12.25)
+shape = SubResource("RectangleShape2D_ebum8")
+
+[node name="Selection" type="Sprite2D" parent="." unique_id=1804024083]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("2_qskn6")
+
+[connection signal="body_entered" from="DialogoArea" to="." method="_on_dialogo_area_body_entered"]
+[connection signal="body_exited" from="DialogoArea" to="." method="_on_dialogo_area_body_exited"]
