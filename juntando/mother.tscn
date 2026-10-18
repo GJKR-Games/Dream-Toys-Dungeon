@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ctwu0oe5lt3gj"]
+
+[ext_resource type="Script" uid="uid://b5h2dft03gs1u" path="res://juntando/mother.gd" id="1_jsi6h"]
+[ext_resource type="PackedScene" uid="uid://du3fs2krywt8j" path="res://2d/cenas/mundo_2d.tscn" id="2_dokpi"]
+[ext_resource type="PackedScene" uid="uid://0whca0g7cdas" path="res://3d/cenas/mundo_3d.tscn" id="3_dokpi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ebum8"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Mother" type="Node" unique_id=1929056692 groups=["mother"]]
+script = ExtResource("1_jsi6h")
+
+[node name="Mundo2D" parent="." unique_id=1743210799 instance=ExtResource("2_dokpi")]
+
+[node name="Mundo3D" parent="." unique_id=1086466881 instance=ExtResource("3_dokpi")]
+visible = false
+
+[node name="Censura2D" type="ColorRect" parent="." unique_id=1188069771]
+anchors_preset = -1
+anchor_left = -0.26041666
+anchor_top = -0.33179012
+anchor_right = 1.0364584
+anchor_bottom = 1.0293211
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PauseLabel" type="Label" parent="." unique_id=1032537313]
+visible = false
+offset_right = 67.0
+offset_bottom = 23.0
+text = "Pausado"
+label_settings = SubResource("LabelSettings_ebum8")
+metadata/_edit_use_anchors_ = true

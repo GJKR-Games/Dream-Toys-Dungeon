@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://qdxe5u8n5ac6"
+path="res://.godot/imported/Tom Screaming - Sound Effect (HD).mp3-ce631302c41dc53ca285a40a64694c46.mp3str"
+
+[deps]
+
+source_file="res://3d/assets/inimigo/Tom Screaming - Sound Effect (HD).mp3"
+dest_files=["res://.godot/imported/Tom Screaming - Sound Effect (HD).mp3-ce631302c41dc53ca285a40a64694c46.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

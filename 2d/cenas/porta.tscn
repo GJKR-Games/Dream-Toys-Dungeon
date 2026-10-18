@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://2gpg7jwf78ls"]
+
+[ext_resource type="Texture2D" uid="uid://cing0qleekd4n" path="res://icon.svg" id="1_0fg3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
+
+[node name="Porta" type="Node2D" unique_id=1543261472]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=282132185]
+position = Vector2(-2.3841858e-07, -1)
+scale = Vector2(0.16406253, 0.14843753)
+texture = ExtResource("1_0fg3y")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1914911097]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1503778836]
+shape = SubResource("RectangleShape2D_ebum8")
