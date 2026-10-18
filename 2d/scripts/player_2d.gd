@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 
 # Controles de Animação
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $SpritePlayer
 enum AnimState {IDLE_D, IDLE_U, IDLE_S, WALKING_D, WALKING_U, WALKING_S}
 
 var state = AnimState.IDLE_D
@@ -13,7 +13,13 @@ var state = AnimState.IDLE_D
 func _input(event: InputEvent) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
-
+	
+	if Input.is_action_just_pressed("ui_interact") and to_na_area:
+		var mother = get_tree().get_first_node_in_group("mother")
+		if mother == null:
+			print('err')
+		else:
+			mother.trocar_pro_3d()
 
 func _physics_process(_delta: float) -> void:
 
@@ -59,3 +65,11 @@ func handle_animationY(directionY):
 
 func change_state(new_state):
 	state = new_state
+
+
+var to_na_area = false
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	to_na_area = true
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	to_na_area = false
