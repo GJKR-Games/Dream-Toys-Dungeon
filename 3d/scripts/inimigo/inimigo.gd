@@ -14,7 +14,6 @@ var to_morto = false
 var lado_incial = false
 func _ready() -> void:
 	lado_incial = randi() % 2
-	get_tree().create_timer(2 * randf()).timeout.connect(func(): iniciar_animacoes())
 
 func iniciar_animacoes():
 	animation.connect("animation_finished", resetar_animacao)
@@ -30,9 +29,11 @@ func resetar_animacao(animacao):
 		if animacao == "idle_2":
 			animation.play("idle")
 
+var detectei = false
 
 func _physics_process(_delta: float) -> void:
 	if to_morto: return
+	if not detectei: return
 	if player == null:
 		print("PLAYER NULO???")
 		player = get_tree().get_first_node_in_group("player3d")
@@ -48,6 +49,7 @@ func _physics_process(_delta: float) -> void:
 func morte():
 	to_morto = true
 	$AudioMorte.play()
+	animation.stop()
 	animated_sprite.play("morto")
 	$CollisionShape3D.disabled = true
 	$AttackRange/CollisionShape3D.disabled = true
@@ -56,3 +58,12 @@ func morte():
 func _on_attack_range_body_entered(body: Node3D) -> void:
 	if not to_morto:
 		player.tomar_hit()
+
+
+var iniciei_andamento = false
+func _on_area_deteccao_body_entered(body: Node3D) -> void:
+	if body.name == "Jogador3D" and not iniciei_andamento and not to_morto:
+		iniciar_animacoes()
+		iniciei_andamento = true
+		$AnimatedSprite3D.play("andar")
+		detectei = true

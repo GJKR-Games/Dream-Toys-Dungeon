@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dsxa068f08pii" path="res://3d/scripts/mundo_3d.gd" id="1_8klh8"]
 [ext_resource type="PackedScene" uid="uid://cnevqk8i00su2" path="res://3d/cenas/jogador_3d.tscn" id="1_yi4on"]
 [ext_resource type="PackedScene" uid="uid://xw1lxhch7mar" path="res://3d/cenas/inimigo_3d.tscn" id="2_hcoc3"]
-[ext_resource type="Texture2D" uid="uid://dwkv50oatfs7l" path="res://3d/assets/cubin.png" id="3_rradq"]
 [ext_resource type="Texture2D" uid="uid://c2dm8mr7ricsp" path="res://3d/assets/tutorial/MouseSpriteSheet.png" id="5_8klh8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a0ywq"]
@@ -48,7 +47,6 @@ adjustment_enabled = true
 size = Vector3(41, 2, 1)
 
 [node name="Mundo3D" type="Node3D" unique_id=1086466881]
-visible = false
 script = ExtResource("1_8klh8")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341903032]
@@ -103,11 +101,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.686597, 0, 9.4455)
 
 [node name="Inimigo4" parent="." unique_id=706991924 instance=ExtResource("2_hcoc3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2507124, 0, 9.4455)
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2114670996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.057288, -0.91449624, 0.0050890446)
-billboard = 1
-texture = ExtResource("3_rradq")
 
 [node name="Barreiras" type="Node3D" parent="." unique_id=1346469704]
 

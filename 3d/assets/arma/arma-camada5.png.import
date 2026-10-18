@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kfq056hjpjcv"
-path="res://.godot/imported/Shoot3.png-7f618d29e57c6d179c5444689a04dcb7.ctex"
+uid="uid://drlibtm0url0q"
+path="res://.godot/imported/arma-camada5.png-0792a44afcd09ba3834fa77a869f93cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://3d/assets/Shoot3.png"
-dest_files=["res://.godot/imported/Shoot3.png-7f618d29e57c6d179c5444689a04dcb7.ctex"]
+source_file="res://3d/assets/arma/arma-camada5.png"
+dest_files=["res://.godot/imported/arma-camada5.png-0792a44afcd09ba3834fa77a869f93cc.ctex"]
 
 [params]
 

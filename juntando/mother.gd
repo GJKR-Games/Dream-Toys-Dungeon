@@ -21,7 +21,7 @@ func _ready() -> void:
 func trocar_pro_3d():
 	mundo_2d.visible = false
 	mundo_2d.process_mode = Node.PROCESS_MODE_DISABLED
-
+	
 	mundo_3d.process_mode = Node.PROCESS_MODE_INHERIT
 	mundo_3d.visible = true
 	var nodes = get_all_children(mundo_3d)
