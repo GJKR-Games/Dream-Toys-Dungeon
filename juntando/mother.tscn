@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://du3fs2krywt8j" path="res://2d/cenas/mundo_2d.tscn" id="2_dokpi"]
 [ext_resource type="PackedScene" uid="uid://0whca0g7cdas" path="res://3d/cenas/mundo_3d.tscn" id="3_dokpi"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ebum8"]
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Mother" type="Node" unique_id=1929056692 groups=["mother"]]
 script = ExtResource("1_jsi6h")
 
@@ -17,3 +21,13 @@ offset_bottom = 135.0
 color = Color(0, 0, 0, 1)
 
 [node name="Mundo3D" parent="." unique_id=1086466881 instance=ExtResource("3_dokpi")]
+visible = false
+
+[node name="PauseLabel" type="Label" parent="." unique_id=1032537313]
+visible = false
+offset_left = -32.0
+offset_top = -14.0
+offset_right = 35.0
+offset_bottom = 9.0
+text = "Pausado"
+label_settings = SubResource("LabelSettings_ebum8")
