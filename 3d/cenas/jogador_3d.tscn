@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1cdxx"]
 
-[node name="Jogador3D" type="CharacterBody3D" unique_id=27713454]
+[node name="Jogador3D" type="CharacterBody3D" unique_id=27713454 groups=["player3d"]]
 collision_mask = 2
 script = ExtResource("1_18p6e")
 
@@ -16,4 +16,5 @@ shape = SubResource("CapsuleShape3D_1cdxx")
 
 [node name="Camera3D" type="Camera3D" parent="Camera" unique_id=1181179072]
 
-[node name="ArmaRoot" parent="." unique_id=1513485598 instance=ExtResource("1_rrtwt")]
+[node name="ArmaRoot" parent="." unique_id=1513485598 node_paths=PackedStringArray("main_camera") instance=ExtResource("1_rrtwt")]
+main_camera = NodePath("../Camera/Camera3D")
